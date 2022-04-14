@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Provider, webLightTheme, webDarkTheme } from '@cebus/react-components';
 import { useLocalDefault, useThemeDetector, useGetLocal } from '../utils';
-import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import { SSRProvider } from '@fluentui/react-utilities';
@@ -10,7 +9,7 @@ import { Partytown } from '@builder.io/partytown/react';
 import { AppProvider } from '../context';
 import '../styles/globals.css';
 
-export default function App(props: AppProps & { renderer: any }) {
+export default function App(props: any) {
   const { Component, pageProps, renderer } = props;
   const isDarkTheme = useThemeDetector();
   const [isMounted, setIsMounted] = React.useState(false);
