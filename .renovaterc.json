@@ -1,8 +1,17 @@
 {
-  "automerge": true,
-  "automergeType": "pr-comment",
-  "automergeComment": "bors: r+",
   ":separateMajorReleases": true,
   ":combinePatchMinorReleases": true,
-  "rebaseWhen": "auto"
+  "rebaseWhen": "auto",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    }
+  ],
+  "platformAutomerge": true,
+  "automergeType": "branch"
 }
