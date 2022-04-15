@@ -1,17 +1,10 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
   ":separateMajorReleases": true,
   ":combinePatchMinorReleases": true,
   "rebaseWhen": "auto",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true
-    }
-  ],
   "platformAutomerge": true,
-  "automergeType": "branch"
+  "automergeType": "branch",
+  "packageRules": [{ "updateTypes": ["minor", "patch", "pin", "digest"], "automerge": true }]
 }
