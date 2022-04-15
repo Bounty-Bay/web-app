@@ -1,0 +1,8 @@
+{
+  "automerge": true,
+  "automergeType": "pr-comment",
+  "automergeComment": "bors: r+",
+  ":separateMajorReleases": true,
+  ":combinePatchMinorReleases": true,
+  "rebaseWhen": "auto"
+}
