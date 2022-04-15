@@ -21,7 +21,7 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "renovate": "32.22.2",
+    "renovate": "32.24.0",
     "@next/eslint-plugin-next": "12.1.5",
     "@cebus/eslint-plugin": "0.0.1",
     "@cebus/react-storybook": "0.0.1",
