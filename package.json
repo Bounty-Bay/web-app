@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@fluentui/react-window-provider": "2.2.0",
-    "@cebus/react-components": "0.0.1",
+    "@cebus/react-components": "0.0.3",
     "@builder.io/partytown": "0.5.2",
     "next": "12.1.5",
     "react": "17.0.2",
