@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":combinePatchMinorReleases", ":separateMajorReleases],
+  "extends": ["config:base", ":combinePatchMinorReleases", ":separateMajorReleases"],
   "rebaseWhen": "auto",
   "platformAutomerge": true,
   "automergeType": "branch",
