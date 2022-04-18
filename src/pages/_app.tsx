@@ -8,10 +8,15 @@ import { SSRProvider } from '@fluentui/react-utilities';
 import { RendererProvider, createDOMRenderer } from '@griffel/react';
 import { Partytown } from '@builder.io/partytown/react';
 import { AppProvider } from '../context';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
 
 export default function App(props: any) {
-  const { Component, pageProps, renderer } = props;
+  const {
+    Component,
+    renderer,
+    pageProps: { session, ...pageProps },
+  } = props;
   const isDarkTheme = useThemeDetector();
   const [isMounted, setIsMounted] = React.useState(false);
 
@@ -80,11 +85,13 @@ export default function App(props: any) {
       <RendererProvider renderer={renderer || createDOMRenderer()}>
         <SSRProvider>
           <AppProvider value={{ setTheme, findTheme }}>
-            {isMounted && (
-              <Provider theme={theme}>
-                <Component {...pageProps} />
-              </Provider>
-            )}
+            <SessionProvider session={session}>
+              {isMounted && (
+                <Provider theme={theme}>
+                  <Component {...pageProps} />
+                </Provider>
+              )}
+            </SessionProvider>
           </AppProvider>
         </SSRProvider>
       </RendererProvider>
