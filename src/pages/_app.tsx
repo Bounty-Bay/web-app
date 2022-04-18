@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Provider, webLightTheme, webDarkTheme } from '@cebus/react-components';
+import { Provider } from '@cebus/react-components';
+import { webLightTheme, webDarkTheme } from '../theme';
 import { useLocalDefault, useThemeDetector, useGetLocal } from '../utils';
 import Head from 'next/head';
 import Script from 'next/script';
