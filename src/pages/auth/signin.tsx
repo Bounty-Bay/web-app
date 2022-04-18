@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Button, Header1, Card } from '@cebus/react-components';
+import { Button, Header1, Card, CardHeader } from '@cebus/react-components';
 import { getProviders, getCsrfToken, signIn } from 'next-auth/react';
+import { makeStyles } from '@griffel/react';
 
 const GoogleSvg = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -25,6 +26,18 @@ const GoogleSvg = () => (
   </svg>
 );
 
+const useStyles = makeStyles({
+  cardWrapper: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
 const ProviderButtons = (props: { provider: any }) => {
   const { provider } = props;
 
@@ -47,26 +60,16 @@ const ProviderButtons = (props: { provider: any }) => {
 
 const SignIn = (props: any) => {
   const { providers, csrfToken } = props;
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const onEmailChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(ev.target.value);
-  };
-
-  const onPasswordChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(ev.target.value);
-  };
-
-  const onCredentialsSignIn = () => signIn('credentials', { email, pw: password, redirect: true });
+  const styles = useStyles();
 
   return (
-    <Card>
+    <div className={styles.cardWrapper}>
+      <CardHeader header={<Header1>Sign in</Header1>} />
       {Object.values(providers).map(
         (provider: any) =>
           provider.id !== 'credentials' && <ProviderButtons provider={provider} key={provider?.name} />,
       )}
-    </Card>
+    </div>
   );
 };
 
