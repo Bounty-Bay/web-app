@@ -16,14 +16,14 @@ export default NextAuth({
     }),
   ],
 
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 
   session: {
     strategy: 'jwt',
   },
 
   jwt: {
-    secret: process.env.SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
   },
 
   pages: {
@@ -34,7 +34,7 @@ export default NextAuth({
 
   callbacks: {
     async redirect({ baseUrl }) {
-      return baseUrl + '/analytics';
+      return baseUrl;
     },
 
     async session({ session }) {

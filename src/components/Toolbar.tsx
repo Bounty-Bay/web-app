@@ -18,7 +18,7 @@ const SignOutButton = () => {
 
   return (
     <Button appearance="subtle" color="brand" onClick={onSignOut} size="small">
-      Log Out
+      <Text nowrap>Log Out</Text>
     </Button>
   );
 };
@@ -35,10 +35,16 @@ export const Toolbar = () => {
       </Stack>
       <Stack grow />
       {session ? (
-        <>
+        <Stack wrap={false} verticalAlignment="center">
           <SignOutButton />
-          <Avatar name={session?.user?.name || ''} image={{ src: session?.user?.image || '' }} />
-        </>
+          <Avatar
+            name={session?.user?.name || ''}
+            image={{
+              src: session?.user?.image || '',
+              alt: 'Avatar of ' + session?.user?.name,
+            }}
+          />
+        </Stack>
       ) : (
         <LoginButton />
       )}
