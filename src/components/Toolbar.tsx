@@ -25,7 +25,6 @@ const ProviderButton = (props: { provider: any }) => {
 
   const onSignIn = () => signIn(provider.id);
 
-  console.log(provider);
   switch (provider.name) {
     case 'Google': {
       return (
@@ -120,13 +119,13 @@ export const Toolbar = () => {
       {session ? (
         <Stack wrap={false} verticalAlignment="center">
           <SignOut />
-          <Avatar
+          {/* <Avatar
             name={session?.user?.name || ''}
             image={{
               src: session?.user?.image || '',
-              alt: 'Avatar of ' + session?.user?.name,
+              alt: session ? 'Avatar of ' + session?.user?.name : '',
             }}
-          />
+          /> */}
         </Stack>
       ) : (
         <Login />
