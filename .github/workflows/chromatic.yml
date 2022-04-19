@@ -20,4 +20,5 @@ jobs:
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          allowConsoleErrors: true
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
