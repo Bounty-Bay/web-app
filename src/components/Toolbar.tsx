@@ -200,20 +200,16 @@ export const Toolbar = () => {
                   </MenuItem>
                 </MenuTrigger>
                 <MenuPopover>
-                  <MenuList>
-                    <MenuPopover>
-                      <MenuList checkedValues={checkedValues} onCheckedValueChange={onChange}>
-                        <MenuItemRadio name="theme" value="System">
-                          System default
-                        </MenuItemRadio>
-                        <MenuItemRadio name="theme" value="Light">
-                          Light mode
-                        </MenuItemRadio>
-                        <MenuItemRadio name="theme" value="Dark">
-                          Dark mode
-                        </MenuItemRadio>
-                      </MenuList>
-                    </MenuPopover>
+                  <MenuList checkedValues={checkedValues} onCheckedValueChange={onChange}>
+                    <MenuItemRadio name="theme" value="System">
+                      System default
+                    </MenuItemRadio>
+                    <MenuItemRadio name="theme" value="Light">
+                      Light mode
+                    </MenuItemRadio>
+                    <MenuItemRadio name="theme" value="Dark">
+                      Dark mode
+                    </MenuItemRadio>
                   </MenuList>
                 </MenuPopover>
               </Menu>
