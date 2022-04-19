@@ -82,19 +82,19 @@ export default function App(props: any) {
           background-color: ${theme.canvasColor};
         }
       `}</style>
-      <RendererProvider renderer={renderer || createDOMRenderer()}>
-        <SSRProvider>
-          <AppProvider value={{ setTheme, findTheme }}>
-            <SessionProvider session={session}>
+      <SessionProvider session={session}>
+        <RendererProvider renderer={renderer || createDOMRenderer()}>
+          <SSRProvider>
+            <AppProvider value={{ setTheme, findTheme }}>
               {isMounted && (
                 <Provider theme={theme}>
                   <Component {...pageProps} />
                 </Provider>
               )}
-            </SessionProvider>
-          </AppProvider>
-        </SSRProvider>
-      </RendererProvider>
+            </AppProvider>
+          </SSRProvider>
+        </RendererProvider>
+      </SessionProvider>
     </>
   );
 }

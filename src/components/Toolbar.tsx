@@ -106,7 +106,7 @@ const SignOut = () => {
 };
 
 export const Toolbar = () => {
-  const { data: session = undefined } = useSession();
+  const { data: session } = useSession();
 
   return (
     <CebusToolbar>
