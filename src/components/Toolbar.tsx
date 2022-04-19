@@ -119,13 +119,13 @@ export const Toolbar = () => {
       {session ? (
         <Stack wrap={false} verticalAlignment="center">
           <SignOut />
-          {/* <Avatar
+          <Avatar
             name={session?.user?.name || ''}
             image={{
               src: session?.user?.image || '',
               alt: session ? 'Avatar of ' + session?.user?.name : '',
             }}
-          /> */}
+          />
         </Stack>
       ) : (
         <Login />
