@@ -117,7 +117,7 @@ export const Toolbar = () => {
         </Text>
       </Stack>
       <Stack grow />
-      {session !== undefined ? (
+      {session ? (
         <Stack wrap={false} verticalAlignment="center">
           <SignOut />
           <Avatar
