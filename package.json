@@ -13,6 +13,11 @@
     "chromatic": "chromatic"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@fluentui/react-window-provider": "2.2.0",
+    "@cebus/react-components": "0.0.3",
+>>>>>>> 7223c7d8db1fe4ca49d5ea36a01c7ad565410f0e
     "@builder.io/partytown": "0.5.2",
     "@cebus/react-components": "0.0.1",
     "@fluentui/react-window-provider": "2.2.0",
@@ -22,7 +27,12 @@
     "next-auth": "^4.3.2"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@prisma/client": "3.12.0",
+=======
+    "renovate": "32.25.0",
+    "@next/eslint-plugin-next": "12.1.5",
+>>>>>>> 7223c7d8db1fe4ca49d5ea36a01c7ad565410f0e
     "@cebus/eslint-plugin": "0.0.1",
     "@cebus/react-storybook": "0.0.1",
     "@next/eslint-plugin-next": "12.1.5",
@@ -30,16 +40,21 @@
     "@storybook/manager-webpack5": "6.4.22",
     "@types/enzyme": "3.10.12",
     "@types/jest": "27.4.1",
-    "@types/node": "14.14.33",
+    "@types/node": "16.11.27",
     "@types/react": "17.0.44",
-    "@types/react-dom": "17.0.9",
+    "@types/react-dom": "17.0.15",
     "chromatic": "6.5.4",
     "husky": "7.0.4",
     "prettier": "2.6.2",
+<<<<<<< HEAD
     "prisma": "3.12.0",
     "renovate": "32.22.2",
     "ts-jest": "24.3.0",
     "ts-node": "7.0.1",
+=======
+    "ts-jest": "27.1.4",
+    "ts-node": "10.7.0",
+>>>>>>> 7223c7d8db1fe4ca49d5ea36a01c7ad565410f0e
     "typescript": "4.6.3",
     "webpack": "5.72.0"
   }
