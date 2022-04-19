@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
 
 export default NextAuth({
   providers: [
@@ -14,6 +15,10 @@ export default NextAuth({
         },
       },
     }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
   ],
 
   secret: process.env.NEXTAUTH_SECRET,
@@ -27,7 +32,7 @@ export default NextAuth({
   },
 
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/error',
     error: '/auth/error',
     newUser: '/auth/error',
   },

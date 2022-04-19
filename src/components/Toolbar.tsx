@@ -23,14 +23,23 @@ const useStyles = makeStyles({
 const ProviderButton = (props: { provider: any }) => {
   const { provider } = props;
 
-  const onSignIn = () => signIn(provider.id, { redirect: true });
+  const onSignIn = () => signIn(provider.id);
 
+  console.log(provider);
   switch (provider.name) {
     case 'Google': {
       return (
         <Button size="large" onClick={onSignIn}>
           <Image src="/image/GoogleLogo.svg" height={24} width={24} />
           Sign in with Google
+        </Button>
+      );
+    }
+    case 'GitHub': {
+      return (
+        <Button size="large" onClick={onSignIn}>
+          <Image src="/image/GithubLogo.svg" height={24} width={24} />
+          Sign in with Github
         </Button>
       );
     }
