@@ -72,8 +72,8 @@ const SignInDialog = (props: { open: boolean; handleOpenChange: DialogProps['onO
         <Stack vertical horizontalAlignment="center" grow>
           {providers &&
             Object.values(providers).map((provider: any) => (
-              <Stack grow>
-                <ProviderButton provider={provider} key={provider?.name} />
+              <Stack grow key={provider?.name}>
+                <ProviderButton provider={provider} />
               </Stack>
             ))}
         </Stack>

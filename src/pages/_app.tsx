@@ -3,10 +3,10 @@ import { Provider } from '@cebus/react-components';
 import { webLightTheme, webDarkTheme } from '../theme';
 import { useLocalDefault, useThemeDetector, useGetLocal } from '../utils';
 import Head from 'next/head';
-import Script from 'next/script';
+// import Script from 'next/script';
 import { SSRProvider } from '@fluentui/react-utilities';
 import { RendererProvider, createDOMRenderer } from '@griffel/react';
-import { Partytown } from '@builder.io/partytown/react';
+// import { Partytown } from '@builder.io/partytown/react';
 import { AppProvider } from '../context';
 import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
@@ -57,8 +57,8 @@ export default function App(props: any) {
         <meta name="description" content="We allow developers to easily create bounties for freelancers." />
         <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
       </Head>
-      <Partytown debug={true} forward={['dataLayer.push']} />
-      <Script
+      {/* <Partytown debug={true} forward={['dataLayer.push']} /> */}
+      {/* <Script
         async
         type="text/partytown"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -76,7 +76,7 @@ export default function App(props: any) {
             });
           `,
         }}
-      />
+      /> */}
       <style jsx global>{`
         body {
           background-color: ${theme.canvasColor};
