@@ -9,8 +9,10 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
-model Star {
-  id            Int    @id @default(autoincrement())
-  name          String @db.VarChar(255)
-  constellation String @db.VarChar(255)
+model Inquiry {
+  id      Int     @id @default(autoincrement())
+  name    String
+  email   String
+  subject String?
+  message String
 }

@@ -12,9 +12,8 @@ import {
   createIcon,
 } from '@cebus/react-components';
 import { useQuery } from 'react-query';
-import { queryClient, fetchStar } from '../server';
+import { queryClient, fetchInquiry } from '../server';
 import { dehydrate } from 'react-query/hydration';
-
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 const ArtIcon = createIcon({
@@ -26,6 +25,9 @@ const ArtIcon = createIcon({
 
 const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
   const onClick = () => null;
+  const { data } = useQuery('Inquiry', fetchInquiry);
+
+  console.log(data);
 
   return (
     <>
@@ -71,8 +73,8 @@ const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  await queryClient.prefetchQuery('star', fetchStar);
+export const getServerSideProps: GetServerSideProps = async () => {
+  await queryClient.prefetchQuery('Inquiry', fetchInquiry);
 
   return {
     props: {
