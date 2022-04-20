@@ -13,6 +13,7 @@ import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { queryClient } from '../server';
+import { AppContainer } from '../components';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -88,7 +89,9 @@ export default function App({ Component, pageProps }: AppProps) {
               <AppProvider value={{ setTheme, findTheme }}>
                 {isMounted && (
                   <Provider theme={theme}>
-                    <Component {...pageProps} />
+                    <AppContainer>
+                      <Component {...pageProps} />
+                    </AppContainer>
                   </Provider>
                 )}
               </AppProvider>

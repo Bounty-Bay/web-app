@@ -11,7 +11,9 @@ import {
   Avatar,
   createIcon,
 } from '@cebus/react-components';
-import { AppContainer } from '../components';
+import { useQuery } from 'react-query';
+import { queryClient, fetchStar } from '../server';
+import { dehydrate } from 'react-query/hydration';
 
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
@@ -26,7 +28,7 @@ const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
   const onClick = () => null;
 
   return (
-    <AppContainer>
+    <>
       <Header1>Newest bounties</Header1>
       <Divider />
       <Card onClick={onClick} style={{ width: '300px' }}>
@@ -65,18 +67,18 @@ const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
           </div>
         </Stack>
       </Card>
-    </AppContainer>
+    </>
   );
 };
 
-// const prisma = new PrismaClient();
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  await queryClient.prefetchQuery('star', fetchStar);
 
-// export async function getServerSideProps() {
-//   const star = await prisma.star.findMany();
-
-//   return {
-//     props: star,
-//   };
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};
 
 export default Home;
