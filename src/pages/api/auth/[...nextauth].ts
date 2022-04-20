@@ -32,9 +32,9 @@ export default NextAuth({
   },
 
   pages: {
-    signIn: '/auth/error',
-    error: '/auth/error',
-    newUser: '/auth/error',
+    signIn: '/error',
+    error: '/error',
+    newUser: '/error',
   },
 
   callbacks: {
