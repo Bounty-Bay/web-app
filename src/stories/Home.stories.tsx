@@ -6,4 +6,6 @@ export default {
   component: Home,
 };
 
-export const HomePage = () => <App pageProps={{ session: undefined }} Component={Home} />;
+export const HomePage = () => (
+  <App pageProps={{ session: undefined }} Component={Home as any} router={undefined as any} />
+);

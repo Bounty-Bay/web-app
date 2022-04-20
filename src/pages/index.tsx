@@ -1,16 +1,5 @@
 import * as React from 'react';
-import {
-  Button,
-  Header1,
-  Header3,
-  Text,
-  Card,
-  Body,
-  Stack,
-  Divider,
-  Avatar,
-  createIcon,
-} from '@cebus/react-components';
+import { Header1, Header3, Text, Card, Body, Stack, Divider, Avatar, createIcon } from '@cebus/react-components';
 import { useQuery } from 'react-query';
 import { queryClient, fetchInquiry } from '../server';
 import { dehydrate } from 'react-query/hydration';
@@ -24,57 +13,53 @@ const ArtIcon = createIcon({
 });
 
 const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
-  const onClick = () => null;
-  const { data } = useQuery('Inquiry', fetchInquiry);
-
-  console.log(data);
+  const { data } = useQuery('inquiry', fetchInquiry);
 
   return (
     <>
       <Header1>Newest bounties</Header1>
       <Divider />
-      <Card onClick={onClick} style={{ width: '300px' }}>
-        <Stack verticalAlignment="center" wrap={false}>
-          <Avatar name="Matt" size="small" />
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Body weight="medium" size={400}>
-              Matt {data && data[0]?.email}
-            </Body>
-            {/* <Body color="inherit">Level 50</Body> */}
-          </div>
-          {/* <Stack grow />
-          <Body>Art</Body>
-          <div>
-            <ArtIcon />
-          </div> */}
-          {/*
-          <Body>Art</Body>
-          <div>
-            <ArtIcon />
-          </div> */}
-        </Stack>
-        <Divider />
-        <div>
-          <Header3>I need logo artwork</Header3>
-        </div>
+      {data?.map((user: any) => (
+        <Card style={{ width: '300px' }}>
+          <Stack verticalAlignment="center" wrap={false}>
+            <Avatar name={user.name} size="small" />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Body weight="medium" size={400}>
+                {user.name}
+              </Body>
+              <Body color="inherit" nowrap>
+                Level 50
+              </Body>
+            </div>
+            <Stack grow />
 
-        <Stack verticalAlignment="center" wrap={false}>
+            <Body>Art</Body>
+            <div>
+              <ArtIcon />
+            </div>
+          </Stack>
+          <Divider />
           <div>
-            <Body color="inherit" nowrap>
-              Asking for:{' '}
-            </Body>
-            <Text weight="medium" size={500}>
-              $15
-            </Text>
+            <Header3>{user.message}</Header3>
           </div>
-        </Stack>
-      </Card>
+          <Stack verticalAlignment="center" wrap={false}>
+            <div>
+              <Body color="inherit" nowrap>
+                Asking for:{' '}
+              </Body>
+              <Text weight="medium" size={500}>
+                $15
+              </Text>
+            </div>
+          </Stack>
+        </Card>
+      ))}
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  await queryClient.prefetchQuery('Inquiry', fetchInquiry);
+  await queryClient.prefetchQuery('inquiry', fetchInquiry);
 
   return {
     props: {
