@@ -9,7 +9,7 @@
     "lint": "next lint",
     "db-view": "prisma studio",
     "db-push": "prisma db push",
-    "db-start": "pscale connect bounty-bay-web-app main --port 3306",
+    "db-start": "pscale connect bounty-bay-web-app main --port 3000",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
     "export": "next build && next export",

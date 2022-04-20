@@ -38,7 +38,7 @@ const Home: InferGetServerSidePropsType<typeof getServerSideProps> = ({}) => {
           <Avatar name="Matt" size="small" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Body weight="medium" size={400}>
-              Matt
+              Matt {data && data[0]?.email}
             </Body>
             {/* <Body color="inherit">Level 50</Body> */}
           </div>
