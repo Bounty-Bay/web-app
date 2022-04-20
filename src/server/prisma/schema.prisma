@@ -10,9 +10,7 @@ generator client {
 }
 
 model Star {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  name          String   @db.VarChar(255)
-  constellation String   @db.VarChar(255)
+  id            Int    @id @default(autoincrement())
+  name          String @db.VarChar(255)
+  constellation String @db.VarChar(255)
 }

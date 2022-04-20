@@ -7,16 +7,15 @@ import Head from 'next/head';
 import { SSRProvider } from '@fluentui/react-utilities';
 import { RendererProvider, createDOMRenderer } from '@griffel/react';
 // import { Partytown } from '@builder.io/partytown/react';
+import type { AppProps } from 'next/app';
 import { AppProvider } from '../context';
 import { SessionProvider } from 'next-auth/react';
+import { QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
+import { queryClient } from '../server';
 import '../styles/globals.css';
 
-export default function App(props: any) {
-  const {
-    Component,
-    renderer,
-    pageProps: { session, ...pageProps },
-  } = props;
+export default function App({ Component, pageProps }: AppProps) {
   const isDarkTheme = useThemeDetector();
   const [isMounted, setIsMounted] = React.useState(false);
 
@@ -50,15 +49,16 @@ export default function App(props: any) {
   }, [isDarkTheme, findTheme, userTheme]);
 
   return (
-    <>
-      <Head>
-        <title>Bounty Bay</title>
-        <meta name="title" content="Bounty Bay" />
-        <meta name="description" content="We allow developers to easily create bounties for freelancers." />
-        <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
-      </Head>
-      {/* <Partytown debug={true} forward={['dataLayer.push']} /> */}
-      {/* <Script
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Head>
+          <title>Bounty Bay</title>
+          <meta name="title" content="Bounty Bay" />
+          <meta name="description" content="We allow developers to easily create bounties for freelancers." />
+          <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
+        </Head>
+        {/* <Partytown debug={true} forward={['dataLayer.push']} /> */}
+        {/* <Script
         async
         type="text/partytown"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -77,24 +77,25 @@ export default function App(props: any) {
           `,
         }}
       /> */}
-      <style jsx global>{`
-        body {
-          background-color: ${theme.canvasColor};
-        }
-      `}</style>
-      <SessionProvider session={session}>
-        <RendererProvider renderer={renderer || createDOMRenderer()}>
-          <SSRProvider>
-            <AppProvider value={{ setTheme, findTheme }}>
-              {isMounted && (
-                <Provider theme={theme}>
-                  <Component {...pageProps} />
-                </Provider>
-              )}
-            </AppProvider>
-          </SSRProvider>
-        </RendererProvider>
-      </SessionProvider>
-    </>
+        <style jsx global>{`
+          body {
+            background-color: ${theme.canvasColor};
+          }
+        `}</style>
+        <SessionProvider session={pageProps.session}>
+          <RendererProvider renderer={pageProps.renderer || createDOMRenderer()}>
+            <SSRProvider>
+              <AppProvider value={{ setTheme, findTheme }}>
+                {isMounted && (
+                  <Provider theme={theme}>
+                    <Component {...pageProps} />
+                  </Provider>
+                )}
+              </AppProvider>
+            </SSRProvider>
+          </RendererProvider>
+        </SessionProvider>
+      </Hydrate>
+    </QueryClientProvider>
   );
 }
