@@ -16,7 +16,7 @@
     "chromatic": "chromatic"
   },
   "dependencies": {
-    "@fluentui/react-window-provider": "2.2.5",
+    "@fluentui/react-window-provider": "2.2.0",
     "@cebus/react-components": "^0.0.4",
     "@builder.io/partytown": "0.6.2",
     "next": "12.1.5",
@@ -37,7 +37,7 @@
     "@types/enzyme": "3.10.12",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.27",
-    "@types/react": "17.0.44",
+    "@types/react": "17.0.52",
     "@types/react-dom": "17.0.15",
     "chromatic": "6.5.4",
     "husky": "7.0.4",
