@@ -2782,18 +2782,18 @@
     "@fluentui/keyboard-keys" "9.0.0-rc.4"
     tslib "^2.1.0"
 
-"@fluentui/react-window-provider@2.2.6":
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-window-provider/-/react-window-provider-2.2.6.tgz#210165ff34f091d39055e52732b882002e165511"
-  integrity sha512-bcQM5mdi4ugVb30GNtde8sP173F+l9p7uQfgK/I8O07EfKHUHZeY4wj5arD53s1cUIQI0kxWJ5RD7upZNRQeQA==
+"@fluentui/react-window-provider@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-window-provider/-/react-window-provider-2.2.0.tgz#c3ae2d89c9ee802d8c572f689d907da25f74396b"
+  integrity sha512-1iZzfVQHZQn6IJSJD1pxnXi5H8T3vrZYi9aqKyVIPZ12DCTVE2gw8W3mnOjsfVuXMGdv1sA7dgd6v4xi9erBow==
   dependencies:
-    "@fluentui/set-version" "^8.2.5"
+    "@fluentui/set-version" "^8.2.0"
     tslib "^2.1.0"
 
-"@fluentui/set-version@^8.2.5":
-  version "8.2.5"
-  resolved "https://registry.yarnpkg.com/@fluentui/set-version/-/set-version-8.2.5.tgz#5f5b0bc00ea53c322480958c2652554d88169c7e"
-  integrity sha512-DwJq9wIXLc8WkeJ/lqYM4Sv+R0Ccb6cy3cY1Bqaa5POsroVKIfL6W+njvAMOj3LO3+DaXo2aDeiUnnw70M8xIw==
+"@fluentui/set-version@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/set-version/-/set-version-8.2.0.tgz#8b13b9532250e98fad4498de8ac4537e0561c6c2"
+  integrity sha512-bqjpfhqaIkBy16vdYzdc7tER9Td7BTcmC+kCXuqkHOQVuG9LJfqVGRV0DA857KLhOxiy0GXwKMeDbNV5jJf6qQ==
   dependencies:
     tslib "^2.1.0"
 
