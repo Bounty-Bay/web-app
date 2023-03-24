@@ -2107,10 +2107,10 @@
   resolved "https://registry.yarnpkg.com/@breejs/later/-/later-4.1.0.tgz#9246907f46cc9e9c9af37d791ab468d98921bcc1"
   integrity sha512-QgGnZ9b7o4k0Ai1ZbTJWwZpZcFK9d+Gb+DyNt4UT9x6IEIs5HVu0iIlmgzGqN+t9MoJSpSPo9S/Mm51UtHr3JA==
 
-"@builder.io/partytown@0.7.6":
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.7.6.tgz#697acea6b552167a4dd43ddd4827018aa42e0364"
-  integrity sha512-snXIGNiZpqjno3XYQN2lbBB+05hsQR/LSttbtIW1c0gmZ7Kh/DIo0YrxlDxCDulAMFPFM8J+4voLwvYepSj3sw==
+"@builder.io/partytown@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.6.2.tgz#3437fb5a0fcbdd36f239bbde05ff31c60948386e"
+  integrity sha512-2wSTB7v3176Mzfu+gTGm+I7MAALeOpvATQ5qf+NUMLfeuvVEX/eWxcJPrrIy7UcoQyT3Mm6Tsb2sfBqJy4R4EQ==
 
 "@cebus/eslint-plugin@0.0.1":
   version "0.0.1"
