@@ -1,12 +1,12 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.0.2
+  node: circleci/node@5.3.0
 
 jobs:
   build:
     docker:
-      - image: cimg/node:16.20.2
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
